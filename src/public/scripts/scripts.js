@@ -10,6 +10,8 @@ function cambiarColor(id, color){
     document.getElementById(id).style.color = color;
 }
 
+function cambiarColorPorDefecto(value, id){ value != "" ? cambiarColor(id, '#000') : cambiarColor(id, '#999') }
+
 function mostrarOcultarEstado(value){
     switch(value){
         case 'activo':
@@ -29,12 +31,6 @@ function mostrarOcultarEstado(value){
     }
 }
 
-function cambiarColorPorDefecto(value, id){
-    if (value != ""){
-        cambiarColor(id, '#000');
-    }
-            else cambiarColor(id, '#999');
-}
 
 
 
