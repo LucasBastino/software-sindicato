@@ -1,46 +1,44 @@
-function mostrar(id){
-    document.getElementById(id).style.display = "flex";
+function mostrar(id) {
+  document.getElementById(id).style.display = "flex";
 }
 
-function ocultar(id){
-    document.getElementById(id).style.display = "none";
+function ocultar(id) {
+  document.getElementById(id).style.display = "none";
 }
 
-function cambiarColor(id, color){
-    document.getElementById(id).style.color = color;
+function cambiarColor(id, color) {
+  document.getElementById(id).style.color = color;
 }
 
-function cambiarColorPorDefecto(value, id){ value != "" ? cambiarColor(id, '#000') : cambiarColor(id, '#999') }
-
-function mostrarOcultarEstado(value){
-    switch(value){
-        case 'activo':
-            mostrar('fecha-ingreso');
-            document.getElementById('fecha-ingreso').className = 'field-12';
-            ocultar('fecha-baja');
-            break;
-        case 'inactivo':
-            mostrar('fecha-ingreso');
-            document.getElementById('fecha-ingreso').className = 'field-6';
-            mostrar('fecha-baja');
-            break;
-        case '':
-            ocultar('fecha-ingreso'); 
-            ocultar('fecha-baja');
-            break;
-    }
+function cambiarColorPorDefecto(value, id) {
+  value != "" ? cambiarColor(id, "#000") : cambiarColor(id, "#999");
 }
 
+function mostrarOcultarEstado(value) {
+  switch (value) {
+    case "activo":
+      mostrar("fecha-ingreso");
+      document.getElementById("fecha-ingreso").className = "field-12";
+      ocultar("fecha-baja");
+      break;
+    case "inactivo":
+      mostrar("fecha-ingreso");
+      document.getElementById("fecha-ingreso").className = "field-6";
+      mostrar("fecha-baja");
+      break;
+    case "":
+      ocultar("fecha-ingreso");
+      ocultar("fecha-baja");
+      break;
+  }
+}
 
-
-
-const form = document.getElementById('form-familiares');
+const form = document.getElementById("form-familiares");
 
 let numeroDeFamiliar = 1;
-function agregarFamiliar(){
-    const familiarForm = document.createElement("div");
-    familiarForm.innerHTML = 
-    `<section class="form__section">
+function agregarFamiliar() {
+  const familiarForm = document.createElement("div");
+  familiarForm.innerHTML = `<section class="form__section">
         <div class="titulo field-12">Datos del familiar</div>
         <input type="text" name="nombres-familiar${numeroDeFamiliar}" placeholder="Nombres" class="field-6">
         <input type="text" name="apellidos-familiar${numeroDeFamiliar}" placeholder="Apellidos" class="field-6">
@@ -67,16 +65,15 @@ function agregarFamiliar(){
         <button class="boton" onclick="agregarFamiliar(); ocultarBotones();">Agregar Familiar</button>
         <button class="boton" type="submit" name="enviar">Enviar</button>
     </section>`;
-    form.appendChild(familiarForm);
-    numeroDeFamiliar++;
+  form.appendChild(familiarForm);
+  numeroDeFamiliar++;
 }
 
-
-function ocultarBotones(){
-    const botones = Array.from(document.querySelectorAll('.boton'));
-    for (let boton of botones) { boton.style.display = 'none' };
-    botones.pop().style.display = 'flex';
-    botones.pop().style.display = 'flex';
+function ocultarBotones() {
+  const botones = Array.from(document.querySelectorAll(".boton"));
+  for (let boton of botones) {
+    boton.style.display = "none";
+  }
+  botones.pop().style.display = "flex";
+  botones.pop().style.display = "flex";
 }
-
-
