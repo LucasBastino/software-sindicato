@@ -20,4 +20,4 @@ app.use(indexRouter);
 app.use(express.static(join(__dirname, "public")));
 
 app.listen(process.env.PORT || 3000);
-console.log("Server is listening on port ".blue + process.env.PORT || 3000);
+console.log("Server is listening on port ".bgBrightGreen.black + process.env.PORT || 3000);
